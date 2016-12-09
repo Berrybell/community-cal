@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Event list</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<h1>Add event</h1>
+	<div>
+		<form th:object="${event}" th:action="@{save}" action="#" method="post">
+		  	<label for="name">Name</label>
+			<input type="text" id="name" th:field="*{name}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+		  	<label for="host">Organizer</label>
+			<input type="text" id="host" th:field="*{host}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+		  	<label for="location">Location</label>
+			<input type="text" id="location" th:field="*{location}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="date">Date</label>
+			<input type="text" id="date" th:field="*{date}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="time">Time</label>
+			<input type="text" id="time" th:field="*{time}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			
+			<label for="catlist">Category</label>
+			<select id="catlist" th:field="*{category}" class="form-control">
+       			<option th:each="category: ${categories}" th:value="${category.categoryid}" th:text="${category.name}"></option>
+    		</select>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="submit" value="save"></input>
+		</form>
+	</div>
+</body>
+</html>
